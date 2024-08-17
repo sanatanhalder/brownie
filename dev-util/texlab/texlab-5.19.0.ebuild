@@ -196,10 +196,10 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION=""
-HOMEPAGE=""
+DESCRIPTION="An implementation of the Language Server Protocol for LaTeX"
+HOMEPAGE="https://github.com/latex-lsp/texlab"
 SRC_URI="
-	https://github.com/latex-lsp/texlab/archive/refs/tags/v5.19.0.tar.gz -> ${P}.tar.gz
+	https://github.com/latex-lsp/texlab/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 
@@ -208,3 +208,21 @@ LICENSE="GPL-3"
 LICENSE+=" Apache-2.0 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
+
+# src_unpack() {
+# 	cargo_src_unpack
+# 	mv texlab-${P}/* ${P}/
+# }
+
+src_compile() {
+	cargo_gen_config
+	cargo_src_compile --manifest-path ${S}/crates/texlab/Cargo.toml
+}
+
+# src_test() {
+# 	cargo_src_test
+# }
+
+src_install() {
+	cargo_src_install --path ${S}/crates/texlab
+}
