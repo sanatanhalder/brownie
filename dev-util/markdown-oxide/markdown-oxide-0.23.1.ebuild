@@ -205,8 +205,8 @@ declare -A GIT_CRATES=(
 
 inherit cargo
 
-DESCRIPTION=""
-HOMEPAGE=""
+DESCRIPTION="Robust, Minimalist, Unbundled PKM for your favorite text-editor through the LSP"
+HOMEPAGE="https://github.com/Feel-ix-343/markdown-oxide"
 SRC_URI="
 	https://github.com/Feel-ix-343/markdown-oxide/archive/refs/tags/v0.23.1.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
