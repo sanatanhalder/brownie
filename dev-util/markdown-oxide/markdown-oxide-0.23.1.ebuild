@@ -42,7 +42,6 @@ CRATES="
 	dirs-sys@0.4.1
 	dirs@5.0.1
 	dlv-list@0.5.2
-	do-notation@0.1.3
 	either@1.8.1
 	equivalent@1.0.1
 	form_urlencoded@1.2.0
@@ -66,7 +65,7 @@ CRATES="
 	iana-time-zone@0.1.60
 	idna@0.4.0
 	indexmap@2.2.6
-	itertools@0.13.0
+	itertools@0.10.5
 	itoa@1.0.9
 	js-sys@0.3.69
 	json5@0.4.1
@@ -209,6 +208,7 @@ inherit cargo
 DESCRIPTION=""
 HOMEPAGE=""
 SRC_URI="
+	https://github.com/Feel-ix-343/markdown-oxide/archive/refs/tags/v0.23.1.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 
@@ -220,3 +220,8 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+
+
+src_compile() {
+    cargo_src_compile
+}
